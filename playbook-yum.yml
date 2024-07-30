@@ -1,0 +1,12 @@
+---
+- name: Install sl with yum
+  hosts: planetexpress
+  connection: ansible.builtin.ssh
+
+  tasks:
+
+    - name: Install steam locomotive with yum
+      package:
+       name: python3-apt
+       state: present
+      become: yes
