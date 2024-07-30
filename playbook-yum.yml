@@ -1,12 +1,14 @@
 ---
 - name: Install sl with yum
   hosts: planetexpress
-  connection: ansible.builtin.ssh
+  connection: ansible.builtin.ssh      
+  vars: 
+     ansible_python_interpreter:  ansible_python_interpreter=/usr/bin/python2.7
 
   tasks:
 
     - name: Install steam locomotive with yum
-      package:
-       name: python3-apt
-       state: present
-      become: yes
+      ansible.builtin.yum:
+        name: sl     # name of the package to install
+        state: present
+      become: yes # run as sudo      
